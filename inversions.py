@@ -5,7 +5,6 @@ def sort(A):
 
     if len(A) == 1:
         return A, 0
-
     else:
         left, linv = sort(A[:len(A)/2])
         right, rinv = sort(A[len(A)/2:])
@@ -23,7 +22,6 @@ def sort(A):
                 else:
                     output.append(right[j])
                     j += 1
-          
                     invs += len(left) - i
             except IndexError:
                 break
@@ -39,6 +37,7 @@ def sort(A):
 
 
 def get_data(filename):
+
     with open(filename, 'r') as f:
         A = f.readlines()
         A = [int(a.strip('\n')) for a in A]
@@ -47,10 +46,9 @@ def get_data(filename):
 
 
 def main():
+    
     A = get_data('IntegerArray.txt')
- 
     sorted_a, invs = sort(A)
-
     print 'FINAL: {}'.format(invs)
 
 if __name__ == '__main__':
